@@ -1,0 +1,508 @@
+const roomstuff = {
+  rooms: {
+    veilOfWhispers: {
+      rName: "Veil of Whispers",
+      roomId: "veilwhispers",
+      backgroundImage: "images/bg-whispers.jpg",
+      borderBGImage: "images/border-whispers.png",
+      innerBGImage: "images/inner-whispers.jpg",
+      innerHRImage: "images/hr-whispers.png",
+      inputBGImage: "images/input-whispers.png",
+      color: "#cccccc",
+      link: "#9c8cb9",
+      hlink: "#decaff",
+      inputBorderColor_Default: "#6e5997",
+      inputTextColor_Default: "#f2f2f2",
+      inputBGColor_Default: "#1d1927",
+      chatBGColor: "#272033",
+      chatFontColor: "#ede6f7",
+      fromBGColor: "#2c213d",
+      fromFontColor: "#d3c4ef",
+      toBGColor: "#302438",
+      toFontColor: "#f0e6ff",
+      spiritListBGColor: "#2a2237",
+      spiritListFontColor: "#bbb3cc",
+      rOpacity: 0.85,
+      rDisable: ""
+    },
+    veilOfAshes: {
+      rName: "Veil of Ashes",
+      roomId: "veilashes",
+      backgroundImage: "images/bg-ashes.jpg",
+      borderBGImage: "images/border-ashes.png",
+      innerBGImage: "images/inner-ashes.jpg",
+      inputBGImage: "images/input-ashes.png",
+      color: "#e6e1dc",
+      link: "#ce6c62",
+      hlink: "#ff9c8a",
+      inputBorderColor_Default: "#923434",
+      inputTextColor_Default: "#fff4f0",
+      inputBGColor_Default: "#2b1919",
+      chatBGColor: "#3c1e1e",
+      chatFontColor: "#ffded6",
+      fromBGColor: "#472828",
+      fromFontColor: "#ffd2c0",
+      toBGColor: "#4f2c2c",
+      toFontColor: "#ffb0a0",
+      spiritListBGColor: "#422525",
+      spiritListFontColor: "#ffc5b2",
+      rOpacity: 0.9,
+      rDisable: ""
+    },
+    veilOfThorns: {
+      rName: "Veil of Thorns",
+      roomId: "veilthorns",
+      backgroundImage: "images/bg-thorns.jpg",
+      borderBGImage: "images/border-thorns.png",
+      innerBGImage: "images/inner-thorns.jpg",
+      inputBGImage: "images/input-thorns.png",
+      color: "#dde8dc",
+      link: "#6d8a6e",
+      hlink: "#95bfa4",
+      inputBorderColor_Default: "#4c694d",
+      inputTextColor_Default: "#e9f0e6",
+      inputBGColor_Default: "#1e2a21",
+      chatBGColor: "#243428",
+      chatFontColor: "#d6f0d4",
+      fromBGColor: "#2e4031",
+      fromFontColor: "#bce7be",
+      toBGColor: "#344737",
+      toFontColor: "#d2f3d5",
+      spiritListBGColor: "#2c3c30",
+      spiritListFontColor: "#c6eac6",
+      rOpacity: 0.9,
+      rDisable: ""
+    },
+    veilOfEmbers: {
+      rName: "Veil of Embers",
+      roomId: "veilembers",
+      backgroundImage: "images/bg-embers.jpg",
+      borderBGImage: "images/border-embers.png",
+      innerBGImage: "images/inner-embers.jpg",
+      inputBGImage: "images/input-embers.png",
+      color: "#f8dfc5",
+      link: "#ff9966",
+      hlink: "#ffb47f",
+      inputBorderColor_Default: "#cc7333",
+      inputTextColor_Default: "#fff6ed",
+      inputBGColor_Default: "#3c2612",
+      chatBGColor: "#442c1a",
+      chatFontColor: "#ffe5c9",
+      fromBGColor: "#50331c",
+      fromFontColor: "#ffdcb0",
+      toBGColor: "#5c3920",
+      toFontColor: "#ffcb98",
+      spiritListBGColor: "#4f321e",
+      spiritListFontColor: "#fbc997",
+      rOpacity: 0.9,
+      rDisable: ""
+    },
+    veilOfEchoes: {
+      rName: "Veil of Echoes",
+      roomId: "veilechoes",
+      backgroundImage: "images/bg-echoes.jpg",
+      borderBGImage: "images/border-echoes.png",
+      innerBGImage: "images/inner-echoes.jpg",
+      inputBGImage: "images/input-echoes.png",
+      color: "#cfd9e6",
+      link: "#7185a3",
+      hlink: "#a3bbd8",
+      inputBorderColor_Default: "#4d6a8c",
+      inputTextColor_Default: "#e8eff7",
+      inputBGColor_Default: "#1a2431",
+      chatBGColor: "#222e3a",
+      chatFontColor: "#d6e7f5",
+      fromBGColor: "#2a3747",
+      fromFontColor: "#d1e3f7",
+      toBGColor: "#304052",
+      toFontColor: "#bcd1eb",
+      spiritListBGColor: "#2a3646",
+      spiritListFontColor: "#cfe1f1",
+      rOpacity: 0.88,
+      rDisable: ""
+    },
+    veilOfRoots: {
+      rName: "Veil of Roots",
+      roomId: "veilroots",
+      backgroundImage: "images/bg-roots.jpg",
+      borderBGImage: "images/border-roots.png",
+      innerBGImage: "images/inner-roots.jpg",
+      inputBGImage: "images/input-roots.png",
+      color: "#e2dac2",
+      link: "#8a6e40",
+      hlink: "#bb9455",
+      inputBorderColor_Default: "#7a5c2f",
+      inputTextColor_Default: "#f4eddc",
+      inputBGColor_Default: "#302616",
+      chatBGColor: "#3a2f1d",
+      chatFontColor: "#eee3cc",
+      fromBGColor: "#44351e",
+      fromFontColor: "#f5e3b3",
+      toBGColor: "#4f3e23",
+      toFontColor: "#f4d999",
+      spiritListBGColor: "#42361f",
+      spiritListFontColor: "#dfcfae",
+      rOpacity: 0.92,
+      rDisable: ""
+    },
+    veilOfHollows: {
+      rName: "Veil of Hollows",
+      roomId: "veilhollows",
+      backgroundImage: "images/bg-hollows.jpg",
+      borderBGImage: "images/border-hollows.png",
+      innerBGImage: "images/inner-hollows.jpg",
+      inputBGImage: "images/input-hollows.png",
+      color: "#d7d7d7",
+      link: "#888888",
+      hlink: "#aaaaaa",
+      inputBorderColor_Default: "#555555",
+      inputTextColor_Default: "#f0f0f0",
+      inputBGColor_Default: "#202020",
+      chatBGColor: "#282828",
+      chatFontColor: "#e0e0e0",
+      fromBGColor: "#2f2f2f",
+      fromFontColor: "#d0d0d0",
+      toBGColor: "#343434",
+      toFontColor: "#c0c0c0",
+      spiritListBGColor: "#2c2c2c",
+      spiritListFontColor: "#b5b5b5",
+      rOpacity: 0.87,
+      rDisable: ""
+    },
+    veilOfFrost: {
+  rName: "Veil of Frost",
+  roomId: "veilfrost",
+  backgroundImage: "images/bg-frost.jpg",
+  borderBGImage: "images/border-frost.png",
+  innerBGImage: "images/inner-frost.jpg",
+  inputBGImage: "images/input-frost.png",
+  color: "#e9f2f7",
+  link: "#91bddc",
+  hlink: "#b5e0fa",
+  inputBorderColor_Default: "#6aaccd",
+  inputTextColor_Default: "#ffffff",
+  inputBGColor_Default: "#233644",
+  chatBGColor: "#284152",
+  chatFontColor: "#dbf3fd",
+  fromBGColor: "#31566e",
+  fromFontColor: "#d1edf8",
+  toBGColor: "#3a5f76",
+  toFontColor: "#bde5f3",
+  spiritListBGColor: "#2d495d",
+  spiritListFontColor: "#cfeaf7",
+  rOpacity: 0.88,
+  rDisable: ""
+}
+
+function getElementsByClassName(className, tag, elm) {
+  elm = elm || document;
+  var elements = Array.from(elm.getElementsByClassName(className));
+  if (!tag) return elements;
+
+  var tagFilter = tag.toUpperCase();
+  return elements.filter(el => el.tagName.toUpperCase() === tagFilter);
+}
+function getElementsByClassName(className, tag, elm) {
+  elm = elm || document;
+  const elements = Array.from(elm.getElementsByClassName(className));
+  if (!tag) return elements;
+
+  const tagFilter = tag.toUpperCase();
+  return elements.filter(el => el.tagName.toUpperCase() === tagFilter);
+}
+// Modern, compact version of getElementsByClassName with optional tag filter
+function getElementsByClassName(className, tag, elm) {
+  elm = elm || document;
+  const elements = Array.from(elm.getElementsByClassName(className));
+  if (!tag) return elements;
+
+  const tagName = tag.toUpperCase();
+  return elements.filter(el => el.tagName.toUpperCase() === tagName);
+}
+function getRoomFromClassName(elem) {
+  return elem.className.replace("fakelink", "").replace(/\s/g, "");
+}
+function jumpToRoom(elem) {
+  var room = getRoomFromClassName(this);
+  findForm.vqxfi.value = room;
+  findForm.submit();
+}
+function setDiv(id, room) {
+  const container = $(id);
+  const content = room[id] || "";
+
+  if (!container) return;
+
+  // Convert #r-chatplus@soi(Like this) to clickable links
+  let html = content.replace(/#r-([a-z0-9@]+)\(([^)]+)\)/gi, "<a href='#' class='fakelink $1'>$2</a>");
+
+  // Convert simpler #r-chatplus into links too
+  html = html.replace(/#r-([a-z0-9@]+)/gi, "<a href='#' class='fakelink $1'>#r-$1</a>");
+
+  container.innerHTML = html;
+
+  // Attach interactive room switching
+  const links = getElementsByClassName('fakelink', 'a', container);
+  for (let i = 0; i < links.length; i++) {
+    const link = links[i];
+    link.onclick = jumpToRoom;
+    link.title = "Link to room " + getRoomFromClassName(link);
+  }
+}
+ var subbutton = document.getElementsByName("vqvaj")[0];
+  subbutton.onclick = function () {
+    var chatbox = document.getElementsByName("vqxsp")[0];
+	var rName3 = document.getElementById('noSpaceRName').value;
+    if (chatbox.value != "") {
+      var newchat = "<font color='" + multiConfig.locationColor + "' bgcolor=\"" + multiConfig.locationBackground + "\" size=\"-2\" id='"+ roomstuff.rooms[multiConfig.currentView].rName +"' class='"+ rName3 +"' style='opacity:"+roomstuff.rooms[multiConfig.currentView].rOpacity+";'>"
+      + roomstuff.rooms[multiConfig.currentView].rName + "</font><br><span class=\"trueMulti " + rName3 + "\">"      + chatbox.value + "</span>";
+      chatbox.value = newchat;
+    }
+  }
+
+
+function prepRoom() {
+  // your setup logic here…
+  isItTrue();
+}
+
+
+
+}
+
+function roomOrView(finder) {
+
+if (finder[finder.selectedIndex].id === "undefined") {
+document.getElementById('changeBtn').value="Change View";
+document.getElementById('changeBtn').onclick = function() { prepScreen2();isItTrue();changePostLimit(); };
+
+}
+else {
+document.getElementById('changeBtn').value="Change Room";
+document.getElementById('changeBtn').onclick = function() { roomChange() };
+};
+}
+
+function prepScreen2()
+{
+  var selObj = document.getElementById('roomselect');	
+  var selIndex = selObj.selectedIndex;
+  //txtIndexObj.value = selIndex;
+  //txtValueObj.value = selObj.options[selIndex].value;
+  //txtTextObj.value = selObj.options[selIndex].text;
+  
+  var room = selObj.options[selIndex].value;
+  prepScreen(room);
+  
+  setCookie(cookieName(), room);
+
+
+}
+
+
+function prepScreen(room)
+{
+  multiConfig.currentView = room;
+  
+  var r = roomstuff.rooms[room];
+  
+  setDiv("roomtop", r);
+  setDiv("roombottom", r);
+  setDiv("underchat", r);
+  setDiv("chatleft", r)
+
+  var bg = "";
+  var inBG = "";
+  var rDisable = " ";
+  var inHR = "";
+  var borderBG="";
+  var inputBGC="";
+  var inputBGI="";
+  var roomId="";
+// Apply inner HR image
+if (r.innerHRImage) {
+  const hrImage = `url("${r.innerHRImage}")`;
+  document.querySelectorAll("hr").forEach(hr => hr.style.backgroundImage = hrImage);
+}
+
+// Collect all input-like elements once
+const inputs = [
+  ...document.getElementsByTagName("INPUT"),
+  ...document.getElementsByTagName("TEXTAREA"),
+  ...document.getElementsByTagName("SELECT"),
+  ...document.getElementsByTagName("OPTION")
+];
+
+// Apply border color
+if (r.inputBorderColor_Default) {
+  inputs.forEach(el => el.style.borderColor = r.inputBorderColor_Default);
+}
+
+// Apply text color
+if (r.inputTextColor_Default) {
+  inputs.forEach(el => el.style.color = r.inputTextColor_Default);
+}
+
+// Apply background color
+if (r.inputBGColor_Default) {
+  inputs.forEach(el => {
+    el.style.backgroundColor = r.inputBGColor_Default;
+    el.style.backgroundImage = "none";
+  });
+}
+// INPUT Background Image
+if (r.inputBGImage) {
+  const inputBGI = `url(${r.inputBGImage})`;
+  document.querySelectorAll("input, textarea, select, option").forEach(el => {
+    el.style.backgroundImage = inputBGI;
+  });
+}
+
+// BODY Background Image
+if (r.backgroundImage) {
+  document.body.style.backgroundImage = `url("${r.backgroundImage}")`;
+}
+
+// BORDER Background
+const borderElem = document.getElementById("borderBackground");
+if (r.borderBGImage) {
+  borderElem.style.backgroundColor = "";
+  borderElem.style.backgroundImage = `url('${r.borderBGImage}')`;
+} else if (r.borderBGColor) {
+  borderElem.style.backgroundColor = r.borderBGColor;
+  borderElem.style.backgroundImage = "none";
+}
+
+// INNER Background
+const innerElem = document.getElementById("innerBackground");
+if (r.innerBGImage) {
+  innerElem.style.backgroundImage = `url(${r.innerBGImage})`;
+} else if (r.innerBGColor) {
+  innerElem.style.backgroundColor = r.innerBGColor;
+  innerElem.style.backgroundImage = "none";
+}
+
+// BODY Text Color
+if (r.color) {
+  document.body.style.color = r.color;
+}
+
+// LINK COLORS
+if (r.link) {
+  document.querySelectorAll("a").forEach(link => link.style.color = r.link);
+}
+if (r.hlink) {
+  document.querySelectorAll("a").forEach(link => {
+    link.addEventListener("mouseover", () => link.style.color = r.hlink);
+    link.addEventListener("mouseout", () => link.style.color = r.link);
+  });
+}
+
+// NAMED FIELD COLORS
+const applyStyle = (name, bg, fg, index = 0) => {
+  const el = document.getElementsByName(name)[index];
+  if (el) {
+    el.style.backgroundColor = bg;
+    el.style.color = fg;
+  }
+};
+
+if (r.fromBGColor) applyStyle("vqxha", r.fromBGColor, r.fromFontColor, 1);
+if (r.toBGColor) applyStyle("vqxto", r.toBGColor, r.toFontColor);
+if (r.spiritListBGColor) applyStyle("vqvdy", r.spiritListBGColor, r.spiritListFontColor);
+if (r.chatBGColor) applyStyle("vqxsp", r.chatBGColor, r.chatFontColor);
+
+// Jump down to anchor
+window.location.hash = "chatmark";
+// Shortcut
+const $ = id => document.getElementById(id);
+
+// On page load
+window.onload = prepRoom;
+
+// Find the form containing the view switch field
+function getFindForm() {
+  return Array.from(document.forms).find(form => form.vqxfi) || false;
+}
+
+// Change room from dropdown selection
+function multichangeRoom() {
+  const select = $("roomselect");
+  const targetId = select.options[select.selectedIndex].id;
+  const form = getFindForm();
+  form.vqxfi.value = targetId;
+  form.submit();
+}
+
+// Bind the button correctly
+function roomChange() {
+  $("changeBtn").onclick = multichangeRoom;
+}
+
+// Cookie helpers
+function cookieName() {
+  return `${editForm.vqxha.value}_${editForm.vqxro.value}`;
+}
+
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp(`${name}=([^;]+)`));
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+function setCookie(name, value, minutes = 10) {
+  const expire = new Date(Date.now() + minutes * 60 * 1000).toUTCString();
+  document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expire}`;
+}
+
+function delCookie(name) {
+  document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:01 GMT`;
+}
+
+// Style tweak
+addCSS("option[disabled]{color:#FF0000;}");
+
+// Trigger multi-view logic
+function isItTrue() {
+  if (TurnOn_trueMulti === 1) {
+    trueMultiLoc();
+    changePostLimit();
+  }
+}
+
+// Adjust post character limit
+function changePostLimit() {
+  $("chipostlimit").value = "1000";
+  document.getElementsByName("vqxby")[0].value = "1000";
+}
+
+// Handle showing/hiding elements per room identity
+function trueMultiLoc() {
+  const roomKey = roomstuff.rooms[multiConfig.currentView].rName.replace(/\s/g, "");
+  $("noSpaceRName").value = roomKey;
+
+  const showElems = elClass => Array.from(document.getElementsByClassName(elClass));
+  const toggleVisibility = (elems, show) =>
+    elems.forEach(el => {
+      const parent = el.closest("blockquote") || el.closest("td")?.parentNode;
+      if (!parent) return;
+      el.style.display = show ? "inline" : "none";
+      parent.style.display = show ? (el.closest("td") ? "table" : "block") : "none";
+
+      let walker = parent.previousSibling;
+      for (let i = 0; i < 8 && walker; i++) {
+        if (walker.style) walker.style.display = show ? (i < 1 ? "block" : "inline") : "none";
+        walker = walker.previousSibling;
+      }
+
+      if (parent.nextSibling && !show) {
+        parent.nextSibling.style.display = "none";
+      }
+    });
+
+  // Hide everything first
+  toggleVisibility(showElems("trueMulti"), false);
+
+  // Reveal matching by className and index
+  toggleVisibility(showElems(roomKey), true);
+  toggleVisibility(showElems($("roomselect")?.selectedIndex), true);
+}

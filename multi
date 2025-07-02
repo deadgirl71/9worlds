@@ -1,0 +1,287 @@
+//(function(){
+
+var findForm;
+var editForm;
+
+/*
+Developed by Robert Nyman, http://www.robertnyman.com
+Code/licensing: http://code.google.com/p/getelementsbyclassname/
+*/	
+var getElementsByClassName = function (className, tag, elm){
+  if (document.getElementsByClassName) {
+    getElementsByClassName = function (className, tag, elm) {
+      elm = elm || document;
+      var elements = elm.getElementsByClassName(className),
+      nodeName = (tag)? new RegExp("\\b" + tag + "\\b", "i") : null,
+      returnElements = [],
+      current;
+      for(var i=0, il=elements.length; i<il; i+=1){
+        current = elements[i];
+        if(!nodeName || nodeName.test(current.nodeName)) {
+          returnElements.push(current);
+        }
+      }
+      return returnElements;
+    };
+  }
+  else if (document.evaluate) {
+    getElementsByClassName = function (className, tag, elm) {
+      tag = tag || "*";
+      elm = elm || document;
+      var classes = className.split(" "),
+      classesToCheck = "",
+      xhtmlNamespace = "http://www.w3.org/1999/xhtml",
+      namespaceResolver = (document.documentElement.namespaceURI === xhtmlNamespace)? xhtmlNamespace : null,
+      returnElements = [],
+      elements,
+      node;
+      for(var j=0, jl=classes.length; j<jl; j+=1){
+        classesToCheck += "[contains(concat(' ', @class, ' '), ' " + classes[j] + " ')]";
+      }
+      try	{
+        elements = document.evaluate(".//" + tag + classesToCheck, elm, namespaceResolver, 0, null);
+      }
+      catch (e) {
+        elements = document.evaluate(".//" + tag + classesToCheck, elm, null, 0, null);
+      }
+      while ((node = elements.iterateNext())) {
+        returnElements.push(node);
+      }
+      return returnElements;
+    };
+  }
+  else {
+    getElementsByClassName = function (className, tag, elm) {
+      tag = tag || "*";
+      elm = elm || document;
+      var classes = className.split(" "),
+      classesToCheck = [],
+      elements = (tag === "*" && elm.all)? elm.all : elm.getElementsByTagName(tag),
+      current,
+      returnElements = [],
+      match;
+      for(var k=0, kl=classes.length; k<kl; k+=1){
+        classesToCheck.push(new RegExp("(^|\\s)" + classes[k] + "(\\s|$)"));
+      }
+      for(var l=0, ll=elements.length; l<ll; l+=1){
+        current = elements[l];
+        match = false;
+        for(var m=0, ml=classesToCheck.length; m<ml; m+=1){
+          match = classesToCheck[m].test(current.className);
+          if (!match) {
+            break;
+          }
+        }
+        if (match) {
+          returnElements.push(current);
+        }
+      }
+      return returnElements;
+    };
+  }
+  return getElementsByClassName(className, tag, elm);
+};
+
+
+function getRoomFromClassName(elem) {
+  return elem.className.replace("fakelink", "").replace(/\s/g, "");
+}
+
+function jumpToRoom(elem)
+{
+  var room = getRoomFromClassName(this);
+  findForm.vqxfi.value = room;
+  findForm.submit();
+}
+
+
+// Cram the HTML into a div
+function setDiv(id, room)
+{
+  var elem = $(id);
+  var r = room[id];
+  var spans;
+  var i;
+  
+  var v;
+  
+  // if r is empty or not defined, set v to "", else set it to r.
+  v = (!!r) ? r : "";
+  
+  // Handle room links #r-chatplus@soi(Like this)  
+  v = v.replace(/(#r-)([a-z0-9@]+)(\()(.[^\)]+)(\))?/gim, "<a href='#' class='fakelink $2'>$4</a>");
+  
+  // And then handle room links like this:  #r-chatplus.
+  v = v.replace(/(#r-)([a-z0-9@]+)?/gim, "<a href='#' class='fakelink $2'>#r-$2</a>");
+  
+  // Sometmes an element is hidden -- like the text under the chat box
+  if (!!elem) {
+    elem.innerHTML = v;
+    spans = getElementsByClassName('fakelink', 'a', elem);
+    for (i = spans.length-1; i >= 0; i--) {
+      elem = spans[i];
+      elem.onclick = jumpToRoom;
+      elem.title = "Link to room " +  getRoomFromClassName(elem);
+    }        
+  }
+}
+
+
+
+function prepRoom()
+{
+  var v;
+  findForm = document.getElementsByName("vqvak")[0].parentNode;       
+  findForm.vqxfi.value = ""; // Clean up anything that may have been left over
+  
+  
+  editForm = document.getElementsByName("vqxsp")[0];
+  while (editForm.tagName.toLowerCase() !== "form") {
+    editForm = editForm.parentNode;
+  }
+  
+  
+  var def = getCookie(cookieName());
+  
+  v = (!!def) ? def : multiConfig.defaultView;
+  multiConfig.currentView = v;;
+  
+  var r = roomstuff.rooms[v];
+  if (!r) {
+    if (v == multiConfig.defaultView) {
+      window.alert("No view called " + v);
+      return;
+    } else {
+      window.alert("Old view no longer available.");
+      v = multiConfig.defaultView;
+    }
+  }
+  
+  // Show the 'default' screen.
+  prepScreen(v);
+  
+  // Create the form we need to change views.
+  var s = "";
+  var selectedMode = "";
+  
+  //s += '<form name="testform">'
+  
+  s += 'Choose Location: <select id="roomselect" onchange="prepScreen2();return false;">';
+  
+  multiConfig.currentView  
+  
+  var arrayList1 = multiConfig.viewList;
+  for (var i = 0; i < arrayList1.length; i++) {
+    var s1 = arrayList1[i];
+    
+    selectedMode = (s1 === multiConfig.currentView) ? "selected" : "";
+    
+    var o = "<option value='" + s1 + "' " +  selectedMode + 
+    ">" + roomstuff.rooms[s1].rName +
+    "</option>";
+    s += o;
+  }
+  
+  s += "</select>";
+  //s += "</form>";
+  
+  $('roomlist').innerHTML = s;
+  
+  
+  var subbutton = document.getElementsByName("vqvaj")[0];
+  subbutton.onclick = function () {
+    var chatbox = document.getElementsByName("vqxsp")[0];
+    if (chatbox.value != "") {
+      var newchat = "<font color=" + multiConfig.locationColor + " bgcolor=" + multiConfig.locationBackground + " size=-2>"
+      + roomstuff.rooms[multiConfig.currentView].rName + "</font><br>"
+      + chatbox.value;
+      chatbox.value = newchat;
+    }
+  }
+}
+
+function prepScreen2()
+{
+  var selObj = document.getElementById('roomselect');	
+  var selIndex = selObj.selectedIndex;
+  //txtIndexObj.value = selIndex;
+  //txtValueObj.value = selObj.options[selIndex].value;
+  //txtTextObj.value = selObj.options[selIndex].text;
+  
+  var room = selObj.options[selIndex].value;
+  prepScreen(room);
+  
+  setCookie(cookieName(), room);      
+}
+
+
+function prepScreen(room)
+{
+  multiConfig.currentView = room;
+  
+  var r = roomstuff.rooms[room];
+  
+  setDiv("roomtop", r);
+  setDiv("roombottom", r);
+  setDiv("underchat", r);
+  setDiv("chatleft", r)
+  
+  var bg = "";
+  
+  if (!!r.backgroundImage) {
+    bg = 'url("' +r.backgroundImage + '")';
+  }
+  document.body.style.backgroundImage = bg;
+    
+  if(!!r.color) {
+    document.body.style.color = r.color;
+  }
+  
+  window.location.hash="chatmark"; 
+}
+
+
+function $(t) {
+  return document.getElementById(t);
+}
+
+
+window.onload = prepRoom;
+
+//////////////////////////
+
+function cookieName() {
+  var s = editForm.vqxha.value + "_" + editForm.vqxro.value;
+  return s;
+}
+
+function getCookie(NameOfCookie)
+{ if (document.cookie.length > 0) 
+  { begin = document.cookie.indexOf(NameOfCookie+"="); 
+    if (begin != -1) 
+    { begin += NameOfCookie.length+1; 
+      end = document.cookie.indexOf(";", begin);
+      if (end == -1) end = document.cookie.length;
+    return unescape(document.cookie.substring(begin, end)); } 
+  }
+  return null; 
+}
+
+function setCookie(NameOfCookie, value, expiredays) 
+{ var ExpireDate = new Date ();
+  //ExpireDate.setTime(ExpireDate.getTime() + (expiredays * 24 * 3600 * 1000));
+  ExpireDate.setTime(ExpireDate.getTime() + (600)); // 10 Minutes.
+  
+  document.cookie = NameOfCookie + "=" + escape(value) + 
+  ((expiredays == null) ? "" : "; expires=" + ExpireDate.toGMTString());
+}
+
+function delCookie(NameOfCookie) 
+{ if (getCookie(NameOfCookie)) {
+  document.cookie = NameOfCookie + "=" +
+  "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+  }
+  
+}
+
+//})();

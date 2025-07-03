@@ -1,5 +1,22 @@
-var roomstuff = {
-  rooms: {
+// --- View Configuration ---
+var multiConfig = {
+  defaultView: "veilOfWhispers", // or whatever veil you want to show first
+  currentView: "",
+  viewList: [
+    "veilOfWhispers",
+    "veilOfAshes",
+    "veilOfThorns",
+    "veilOfEmbers",
+    "veilOfEchoes",
+    "veilOfRoots",
+    "veilOfHollows",
+    "veilOfFrost",
+    "veilOfDescent"
+  ],
+  locationColor: "#aaa",
+  locationBackground: "#1a1a2a"
+};
+
 
     veilOfWhispers: {
       rName: "Veil of Whispers",

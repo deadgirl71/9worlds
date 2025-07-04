@@ -1,209 +1,48 @@
-// ================================
-// 💫 veilEngine.js
-// ================================
+var roomstuff = {
+  rooms: {
+    VEILS: {
+      rName: "— NINE VEILS —",
+      rDisable: "disabled"
+    },
 
-// --- Utility Shortcuts ---
-function $(id) {
-  return document.getElementById(id);
-}
+    veilOfWhispers: {
+      rName: "🜁 Veil of Whispers",
+      roomId: "veilOfWhispers",
+      roomtop: "<div style='text-align:center;font-style:italic;'>A hush gathers like breath in the dark.</div>",
+      chatleft: "<div style='text-align:left;'>Only those who listen without wanting hear the true echo.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Sussurus super limen... <i>(A whisper across the threshold)</i></div>",
+      roombottom: "<center><i>“Step lightly, for here even silence listens.”</i></center>",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veilofwhispersback.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/whispers-border.jpg",
+      innerBGColor: "#1a1a2a",
+      inputBGColor_Default: "#1e1e2e",
+      inputTextColor_Default: "#cccccc",
+      inputBorderColor_Default: "#555",
+      chatBGColor: "#111",
+      chatFontColor: "#ccc",
+      color: "#ccc"
+    },
 
-function getElementsByClassName(className, tag, elm) {
-  elm = elm || document;
-  const elements = Array.from(elm.getElementsByClassName(className));
-  if (!tag) return elements;
-  const tagFilter = tag.toUpperCase();
-  return elements.filter(el => el.tagName.toUpperCase() === tagFilter);
-}
-
-// --- Cookie Helpers ---
-function cookieName() {
-  return editForm.vqxha.value + "_" + editForm.vqxro.value;
-}
-
-function setCookie(name, value, expiredays) {
-  const ExpireDate = new Date();
-  ExpireDate.setTime(ExpireDate.getTime() + 600); // 10 minutes
-  document.cookie = name + "=" + escape(value) +
-    ((expiredays == null) ? "" : "; expires=" + ExpireDate.toGMTString());
-}
-
-function getCookie(name) {
-  if (document.cookie.length > 0) {
-    let begin = document.cookie.indexOf(name + "=");
-    if (begin !== -1) {
-      begin += name.length + 1;
-      let end = document.cookie.indexOf(";", begin);
-      if (end === -1) end = document.cookie.length;
-      return unescape(document.cookie.substring(begin, end));
+    veilOfEmbers: {
+      rName: "🜂 Veil of Embers",
+      roomId: "veilOfEmbers",
+      roomtop: "<div style='text-align:center;font-style:italic;'>The spark you buried still waits to rise.</div>",
+      chatleft: "<div style='text-align:left;'>A whisper smolders beneath each word. It waits.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Flamma dormit... nondum mortua. <i>(The flame sleeps, not dead)</i></div>",
+      roombottom: "<center><i>Trace the embers, and the ashes will speak.</i></center>",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veilofembersbackpossible.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/embers-border.jpg",
+      innerBGColor: "#2a1b17",
+      inputBGColor_Default: "#331f1a",
+      inputTextColor_Default: "#f8dfc5",
+      inputBorderColor_Default: "#805a3a",
+      chatBGColor: "#1e1411",
+      chatFontColor: "#f8dfc5",
+      color: "#f8dfc5"
     }
   }
-  return null;
-}
+};
 
-function delCookie(name) {
-  if (getCookie(name)) {
-    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-  }
-}
-
-// --- Room Link Magic ---
-function getRoomFromClassName(elem) {
-  return elem.className.replace("fakelink", "").replace(/\s/g, "");
-}
-
-function jumpToRoom() {
-  const room = getRoomFromClassName(this);
-  findForm.vqxfi.value = room;
-  findForm.submit();
-}
-
-function setDiv(id, room) {
-  const elem = $(id);
-  let v = (!!room[id]) ? room[id] : "";
-  v = v.replace(/(#r-)([a-z0-9@]+)(\()(.[^\)]+)(\))?/gim, "<a href='#' class='fakelink $2'>$4</a>");
-  v = v.replace(/(#r-)([a-z0-9@]+)/gim, "<a href='#' class='fakelink $2'>#r-$2</a>");
-  if (!!elem) {
-    elem.innerHTML = v;
-    const spans = getElementsByClassName('fakelink', 'a', elem);
-    for (let i = spans.length - 1; i >= 0; i--) {
-      spans[i].onclick = jumpToRoom;
-      spans[i].title = "Link to room " + getRoomFromClassName(spans[i]);
-    }
-  }
-}
-
-// --- Room Switching Logic ---
-function prepRoom() {
-  findForm = document.getElementsByName("vqvak")[0].parentNode;
-  findForm.vqxfi.value = "";
-
-  editForm = document.getElementsByName("vqxsp")[0];
-  while (editForm.tagName.toLowerCase() !== "form") {
-    editForm = editForm.parentNode;
-  }
-
-  const def = getCookie(cookieName());
-  let view = (!!def) ? def : multiConfig.defaultView;
-  multiConfig.currentView = view;
-
-  if (!roomstuff.rooms[view]) {
-    alert("No view called " + view);
-    view = multiConfig.defaultView;
-  }
-
-  prepScreen(view);
-
-  const rs = document.getElementsByName("vqxfi")[0];
-  const rsBg = getComputedStyle(rs).backgroundColor;
-  const rsColor = getComputedStyle(rs).color;
-  const rsBorder = getComputedStyle(rs).borderColor;
-
-  let s = `<select id="roomselect" onChange="roomOrView(this);" style="background-color:${rsBg};color:${rsColor};border:1px solid ${rsBorder};">`;
-
-  for (const viewKey of multiConfig.viewList) {
-    const selected = (viewKey === multiConfig.currentView) ? "selected" : "";
-    const room = roomstuff.rooms[viewKey];
-    s += `<option value='${viewKey}' ${selected} id='${room.roomId}' ${room.rDisable}>${room.rName}</option>`;
-  }
-
-  s += "</select> ";
-  const rName2 = roomstuff.rooms[multiConfig.currentView].rName.replace(/\s/g, '');
-  changeButtonObj = document.getElementsByName("vqvaj")[0];
-  s += `<input type="text" style="display:none;" id="noSpaceRName" value="${rName2}">`;
-  s += `<input type="button" value="Change View" id="changeBtn" style="background-color:${rsBg};color:${rsColor};border:1px solid ${rsBorder};">`;
-
-  $('roomlist').innerHTML = s;
-
-  document.getElementsByName("vqvaj")[0].onclick = function () {
-    const chatbox = document.getElementsByName("vqxsp")[0];
-    const rName3 = document.getElementById('noSpaceRName').value;
-    if (chatbox.value !== "") {
-      const newchat = `<font color='${multiConfig.locationColor}' bgcolor='${multiConfig.locationBackground}' size='-2' id='${roomstuff.rooms[multiConfig.currentView].rName}' class='${rName3}' style='opacity:${roomstuff.rooms[multiConfig.currentView].rOpacity};'>${roomstuff.rooms[multiConfig.currentView].rName}</font><br><span class="trueMulti ${rName3}">${chatbox.value}</span>`;
-      chatbox.value = newchat;
-    }
-  }
-
-  isItTrue();
-}
-
-// --- Theme Application ---
-function prepScreen(viewKey) {
-  multiConfig.currentView = viewKey;
-  const r = roomstuff.rooms[viewKey];
-
-  setDiv("roomtop", r);
-  setDiv("roombottom", r);
-  setDiv("underchat", r);
-  setDiv("chatleft", r);
-
-  document.body.style.backgroundImage = `url('${r.backgroundImage || ""}')`;
-  document.body.style.color = r.color || "";
-
-  const borderElem = $('borderBackground');
-  borderElem.style.backgroundColor = r.borderBGColor || "";
-  borderElem.style.backgroundImage = r.borderBGImage ? `url('${r.borderBGImage}')` : "";
-
-  const innerElem = $('innerBackground');
-  innerElem.style.backgroundColor = r.innerBGColor || "";
-  innerElem.style.backgroundImage = r.innerBGImage ? `url('${r.innerBGImage}')` : "";
-
-  const inputs = ["INPUT", "TEXTAREA", "SELECT", "OPTION"].flatMap(tag => Array.from(document.getElementsByTagName(tag)));
-  for (const el of inputs) {
-    if (r.inputBorderColor_Default) el.style.borderColor = r.inputBorderColor_Default;
-    if (r.inputTextColor_Default) el.style.color = r.inputTextColor_Default;
-    if (r.inputBGColor_Default) el.style.backgroundColor = r.inputBGColor_Default;
-    if (r.inputBGImage) el.style.backgroundImage = `url(${r.inputBGImage})`;
-  }
-
-  if (r.innerHRImage) {
-    const hrImg = `url('${r.innerHRImage}')`;
-    document.querySelectorAll("HR").forEach(hr => hr.style.backgroundImage = hrImg);
-  }
-
-  // Link styling
-  if (r.link) {
-    document.querySelectorAll("a").forEach(a => a.style.color = r.link);
-  }
-
-  if (r.hlink) {
-    document.querySelectorAll("a").forEach(a => {
-      a.addEventListener("mouseover", () => a.style.color = r.hlink);
-      a.addEventListener("mouseout", () => a.style.color = r.link);
-    });
-  }
-
-  // Special field boxes
-  const box = (name, bg, color) => {
-    const el = document.getElementsByName(name)[0];
-    if (el) {
-      if (bg) el.style.backgroundColor = bg;
-      if (color) el.style.color = color;
-    }
-  };
-
-  box("vqxha", r.fromBGColor, r.fromFontColor);
-  box("vqxto", r.toBGColor, r.toFontColor);
-  box("vqvdy", r.spiritListBGColor, r.spiritListFontColor);
-  box("vqxsp", r.chatBGColor, r.chatFontColor);
-
-  window.location.hash = "chatmark";
-}
-
-// --- View Switching ---
-function prepScreen2() {
-  const sel = $('roomselect');
-  prepScreen(sel.options[sel.selectedIndex].value);
-  setCookie(cookieName(), sel.value);
-}
-
-function roomOrView(select) {
-  if (select[select.selectedIndex].id === "undefined") {
-    $('changeBtn').value = "Change View";
-    $('changeBtn').onclick = () => { prepScreen2(); isItTrue(); changePostLimit(); };
-  } else {
-    $('changeBtn').value = "Change Room";
-    $('changeBtn').onclick = roomChange;
-  }
 }
 
 function multichangeRoom() {

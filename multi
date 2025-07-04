@@ -8,10 +8,6 @@ var roomstuff = {
     veilOfWhispers: {
       rName: "🜁 Veil of Whispers",
       roomId: "veilOfWhispers",
-      roomtop: "<div style='text-align:center;font-style:italic;'>A hush gathers like breath in the dark.</div>",
-      chatleft: "<div style='text-align:left;'>Only those who listen without wanting hear the true echo.</div>",
-      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Sussurus super limen... <i>(A whisper across the threshold)</i></div>",
-      roombottom: "<center><i>“Step lightly, for here even silence listens.”</i></center>",
       backgroundImage: "https://soi-9worlds.hyperchat.com/veilofwhispersback.jpg",
       borderBGImage: "https://soi-9worlds.hyperchat.com/whispers-border.jpg",
       innerBGColor: "#1a1a2a",
@@ -20,16 +16,24 @@ var roomstuff = {
       inputBorderColor_Default: "#555",
       chatBGColor: "#111",
       chatFontColor: "#ccc",
-      color: "#ccc"
+      color: "#ccc",
+
+      // bottom layout (main chat visuals)
+      roomtop: "<div style='text-align:center;font-style:italic;'>🜁 A hush gathers like breath in the dark.</div>",
+      chatleft: "<div style='text-align:left;'>Only those who listen without wanting hear the true echo.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Sussurus super limen... <i>(A whisper across the threshold)</i></div>",
+      roombottom: "<center><i>“Step lightly, for here even silence listens.”</i></center>",
+
+      // top-of-room poetic header (optional)
+      veilHeaderTop: "🜁 A hush gathers like breath in the dark.",
+      veilHeaderLeft: "Only those who listen without wanting hear the true echo.",
+      veilHeaderUnder: "Sussurus super limen... <i>(A whisper across the threshold)</i>",
+      veilHeaderBottom: "“Step lightly, for here even silence listens.”"
     },
 
     veilOfEmbers: {
       rName: "🜂 Veil of Embers",
       roomId: "veilOfEmbers",
-      roomtop: "<div style='text-align:center;font-style:italic;'>The spark you buried still waits to rise.</div>",
-      chatleft: "<div style='text-align:left;'>A whisper smolders beneath each word. It waits.</div>",
-      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Flamma dormit... nondum mortua. <i>(The flame sleeps, not dead)</i></div>",
-      roombottom: "<center><i>Trace the embers, and the ashes will speak.</i></center>",
       backgroundImage: "https://soi-9worlds.hyperchat.com/veilofembersbackpossible.jpg",
       borderBGImage: "https://soi-9worlds.hyperchat.com/embers-border.jpg",
       innerBGColor: "#2a1b17",
@@ -38,12 +42,17 @@ var roomstuff = {
       inputBorderColor_Default: "#805a3a",
       chatBGColor: "#1e1411",
       chatFontColor: "#f8dfc5",
-      color: "#f8dfc5"
+      color: "#f8dfc5",
+
+      roomtop: "<div style='text-align:center;font-style:italic;'>🜂 The spark you buried still waits to rise.</div>",
+      chatleft: "<div style='text-align:left;'>A whisper smolders beneath each word. It waits.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Flamma dormit... nondum mortua. <i>(The flame sleeps, not dead)</i></div>",
+      roombottom: "<center><i>Trace the embers, and the ashes will speak.</i></center>",
+
+      veilHeaderTop: "🜂 The spark you buried still waits to rise.",
+      veilHeaderLeft: "A whisper smolders beneath each word. It waits.",
+      veilHeaderUnder: "Flamma dormit... nondum mortua. <i>(The flame sleeps, not dead)</i>",
+      veilHeaderBottom: "Trace the embers, and the ashes will speak."
     }
   }
 };
-
-}
-
-function multichangeRoom() {
-  const target = $('roomselect').

@@ -1,28 +1,12 @@
-// --- View Configuration ---
-var multiConfig = {
-  defaultView: "veilOfWhispers", // or whatever veil you want to show first
-  currentView: "",
-  viewList: [
-    "veilOfWhispers",
-    "veilOfAshes",
-    "veilOfThorns",
-    "veilOfEmbers",
-    "veilOfEchoes",
-    "veilOfRoots",
-    "veilOfHollows",
-    "veilOfFrost",
-    "veilOfDescent"
-  ],
-  locationColor: "#aaa",
-  locationBackground: "#1a1a2a"
-};
-
+var roomstuff = {
+  rooms: {
 
     veilOfWhispers: {
       rName: "Veil of Whispers",
-      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veilofwhisperstop.jpg' alt='Veil of Whispers' style='max-width:90%; margin-top:10px;'></center>",
-      roombottom: "<center><i>“Step lightly, for here even silence listens.”</i></center>",
+      roomtop: "<p style='text-align:center; font-style:italic;'>A hush gathers like breath in the dark.</p>",
+      chatleft: "<div style='text-align:left;'>🜁 Only those who listen without wanting hear the true echo.</div>",
       underchat: "<div style='font-size:10px; text-align:center; opacity:0.5;'>Sussurus super limen... <i>(A whisper across the threshold)</i></div>",
+      roombottom: "<center><i>“Step lightly, for here even silence listens.”</i></center>",
       backgroundImage: "https://soi-9worlds.hyperchat.com/veilofwhispersback.jpg",
       borderBGImage: "https://soi-9worlds.hyperchat.com/silver-border-frame.png",
       innerBGColor: "#1d1927",
@@ -45,9 +29,10 @@ var multiConfig = {
 
     veilOfAshes: {
       rName: "Veil of Ashes",
-      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/VeilofAshestop.jpg' alt='Veil of Ashes'></center>",
-      roombottom: "<center><i>“What was burned still remembers the shape it held.”</i></center>",
+      roomtop: "<p style='text-align:center; font-style:italic;'>Ash still holds the outlines of memory.</p>",
+      chatleft: "<div style='text-align:left;'>🜂 Ash whispers in the shape of old fires.</div>",
       underchat: "<div style='font-size:10px; text-align:center; opacity:0.5;'>Ex cinere surgimus... <i>(From ash we rise)</i></div>",
+      roombottom: "<center><i>“What was burned still remembers the shape it held.”</i></center>",
       backgroundImage: "https://soi-9worlds.hyperchat.com/VeilofAshesback.jpg",
       borderBGImage: "https://soi-9worlds.hyperchat.com/strip.jpg",
       innerBGColor: "#2b1919",
@@ -70,9 +55,10 @@ var multiConfig = {
 
     veilOfThorns: {
       rName: "Veil of Thorns",
-      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/VeilofThornstop.jpg' alt='Veil of Thorns'></center>",
-      roombottom: "<center><i>“Pain is the cost of beauty when beauty is what guards the door.”</i></center>",
+      roomtop: "<p style='text-align:center; font-style:italic;'>The bloom draws blood; the gate remembers pain.</p>",
+      chatleft: "<div style='text-align:left;'>🜄 Beauty defends itself in vines and silence.</div>",
       underchat: "<div style='font-size:10px; text-align:center; opacity:0.5;'>Custos pulchritudinis dolor est... <i>(Pain guards beauty)</i></div>",
+      roombottom: "<center><i>“Pain is the cost of beauty when beauty is what guards the door.”</i></center>",
       backgroundImage: "https://soi-9worlds.hyperchat.com/VeilofThornsback.jpg",
       borderBGImage: "https://soi-9worlds.hyperchat.com/strip.jpg",
       innerBGColor: "#1e2a21",
@@ -95,9 +81,10 @@ var multiConfig = {
 
     veilOfEmbers: {
       rName: "Veil of Embers",
-      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/VeilofEmberstop.jpg' alt='Veil of Embers'></center>",
-      roombottom: "<center><i>“The spark you buried still waits to rise.”</i></center>",
+      roomtop: "<p style='text-align:center; font-style:italic;'>🜂 The spark you buried still waits to rise.</p>",
+      chatleft: "<div style='text-align:left;'>🔥 A whisper smolders beneath each word. It waits.</div>",
       underchat: "<div style='font-size:10px; text-align:center; opacity:0.5;'>Flamma dormit... nondum mortua. <i>(The flame sleeps, not dead)</i></div>",
+      roombottom: "<center><i>Trace the embers, and the ashes will speak.</i></center>",
       backgroundImage: "https://soi-9worlds.hyperchat.com/veilofembersbackpossible.jpg",
       borderBGImage: "https://soi-9worlds.hyperchat.com/strip.jpg",
       innerBGColor: "#3c2612",
@@ -118,66 +105,64 @@ var multiConfig = {
       spiritListFontColor: "#fbc997"
     },
 
-    veilOfEchoes: {
-      rName: "Veil of Echoes",
-      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/VeilofEchoestop.jpg' alt='Veil of Echoes'></center>",
-      roombottom: "<center><i>“Speak, and hear your words return wearing new faces.”</i></center>",
-      underchat: "<div style='font-size:10px; text-align:center; opacity:0.5;'>Vocem tuam audis iterum... aliter. <i>(You hear your voice again... changed)</i></div>",
-      backgroundImage: "https://soi-9worlds.hyperchat.com/VeilofEchoesback.jpg",
-      borderBGImage: "https://soi-9worlds.hyperchat.com/strip.jpg",
-      innerBGColor: "#1a2431",
-      innerHRImage: "https://soi-9worlds.hyperchat.com/xScreenshot_2.png.pagespeed.ic.lYbDHQaRxl-removebg-preview.png",
-      color: "#cfd9e6",
-      link: "#7185a3",
-      hlink: "#a3bbd8",
-      inputBorderColor_Default: "#4d6a8c",
-      inputTextColor_Default: "#e8eff7",
-      inputBGColor_Default: "#1a2431",
-      chatBGColor: "#222e3a",
-      chatFontColor: "#d6e7f5",
-      fromBGColor: "#2a3747",
-      fromFontColor: "#d1e3f7",
-      toBGColor: "#304052",
-      toFontColor: "#bcd1eb",
-      spiritListBGColor: "#2a3646",
-      spiritListFontColor: "#cfe1f1"
-    },
+veilOfEchoes: {
+  rName: "Veil of Echoes",
+  roomtop: "<p style='text-align:center; font-style:italic;'>Your voice returns—not as it left you.</p>",
+  chatleft: "<div style='text-align:left;'>🜄 Speak, and echoes may remember what you forget.</div>",
+  underchat: "<div style='font-size:10px; text-align:center; opacity:0.5;'>Vocem tuam audis iterum... aliter. <i>(You hear your voice again... changed)</i></div>",
+  roombottom: "<center><i>“Speak, and hear your words return wearing new faces.”</i></center>",
+  backgroundImage: "https://soi-9worlds.hyperchat.com/VeilofEchoesback.jpg",
+  borderBGImage: "https://soi-9worlds.hyperchat.com/strip.jpg",
+  innerBGColor: "#1a2431",
+  innerHRImage: "https://soi-9worlds.hyperchat.com/xScreenshot_2.png.pagespeed.ic.lYbDHQaRxl-removebg-preview.png",
+  color: "#cfd9e6",
+  link: "#7185a3",
+  hlink: "#a3bbd8",
+  inputBorderColor_Default: "#4d6a8c",
+  inputTextColor_Default: "#e8eff7",
+  inputBGColor_Default: "#1a2431",
+  chatBGColor: "#222e3a",
+  chatFontColor: "#d6e7f5",
+  fromBGColor: "#2a3747",
+  fromFontColor: "#d1e3f7",
+  toBGColor: "#304052",
+  toFontColor: "#bcd1eb",
+  spiritListBGColor: "#2a3646",
+  spiritListFontColor: "#cfe1f1"
+},
 
-   veilOfRoots: {
+veilOfRoots: {
   rName: "Veil of Roots",
-  roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/VeilofRootstop.jpg' alt='Veil of Roots'></center>",
-  roombottom: "<center><i>“All paths begin where memory clings to the soil.”</i></center>",
+  roomtop: "<p style='text-align:center; font-style:italic;'>Everything begins where memory clings to soil.</p>",
+  chatleft: "<div style='text-align:left;'>🌿 Beneath every step, a root keeps watch.</div>",
   underchat: "<div style='font-size:10px; text-align:center; opacity:0.5;'>Radices tenent memorias... <i>(Roots hold memories)</i></div>",
-
+  roombottom: "<center><i>“All paths begin where memory clings to the soil.”</i></center>",
   backgroundImage: "https://soi-9worlds.hyperchat.com/VeilofRootsback.jpg",
   borderBGImage: "https://soi-9worlds.hyperchat.com/strip.jpg",
   innerBGColor: "#302616",
   innerHRImage: "https://soi-9worlds.hyperchat.com/xScreenshot_2.png.pagespeed.ic.lYbDHQaRxl-removebg-preview.png",
-
   color: "#e2dac2",
   link: "#8a6e40",
   hlink: "#bb9455",
-
   inputBorderColor_Default: "#7a5c2f",
   inputTextColor_Default: "#f4eddc",
   inputBGColor_Default: "#302616",
-
   chatBGColor: "#3a2f1d",
   chatFontColor: "#eee3cc",
-
   fromBGColor: "#44351e",
   fromFontColor: "#f5e3b3",
   toBGColor: "#4f3e23",
   toFontColor: "#f4d999",
-
   spiritListBGColor: "#42361f",
   spiritListFontColor: "#dfcfae"
 },
+
 veilOfHollows: {
   rName: "Veil of Hollows",
-  roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/VeilofHollowstop.jpg' alt='Veil of Hollows'></center>",
-  roombottom: "<center><i>“Emptiness makes room for the truths you could not carry.”</i></center>",
+  roomtop: "<p style='text-align:center; font-style:italic;'>Hollow spaces make room for truth.</p>",
+  chatleft: "<div style='text-align:left;'>🜃 Emptiness doesn’t lack meaning—it carves it.</div>",
   underchat: "<div style='font-size:10px; text-align:center; opacity:0.5;'>In vacuo... veritas latet. <i>(In emptiness, truth hides)</i></div>",
+  roombottom: "<center><i>“Emptiness makes room for the truths you could not carry.”</i></center>",
   backgroundImage: "https://soi-9worlds.hyperchat.com/VeilofHollowsback.jpg",
   borderBGImage: "https://soi-9worlds.hyperchat.com/strip.jpg",
   innerBGColor: "#202020",
@@ -197,11 +182,13 @@ veilOfHollows: {
   spiritListBGColor: "#2c2c2c",
   spiritListFontColor: "#b5b5b5"
 },
+
 veilOfFrost: {
   rName: "Veil of Frost",
-  roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veiloffrosttop.jpg' alt='Veil of Frost'></center>",
-  roombottom: "<center><i>“Time here does not forget—it simply slows until it freezes.”</i></center>",
+  roomtop: "<p style='text-align:center; font-style:italic;'>Time here slows until it forgets motion.</p>",
+  chatleft: "<div style='text-align:left;'>❄ Your breath hangs like a memory in suspension.</div>",
   underchat: "<div style='font-size:10px; text-align:center; opacity:0.5;'>Tempus gelidum... sed memor. <i>(Time is cold, yet remembering)</i></div>",
+  roombottom: "<center><i>“Time here does not forget—it simply slows until it freezes.”</i></center>",
   backgroundImage: "https://soi-9worlds.hyperchat.com/VeilofFrostback.jpg",
   borderBGImage: "https://soi-9worlds.hyperchat.com/strip.jpg",
   innerBGColor: "#233644",
@@ -221,11 +208,13 @@ veilOfFrost: {
   spiritListBGColor: "#2d495d",
   spiritListFontColor: "#cfeaf7"
 },
+
 veilOfDescent: {
   rName: "Veil of Descent",
-  roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veilofdescenttopuse.png' alt='Veil of Descent'></center>",
-  roombottom: "<center><i>“There are no guardians here. Only echoes wearing your name.”</i></center>",
+  roomtop: "<p style='text-align:center; font-style:italic;'>No guardians remain, only voices in your shape.</p>",
+  chatleft: "<div style='text-align:left;'>🜁 Descent does not follow—it invites.</div>",
   underchat: "<div style='font-size:10px; text-align:center; opacity:0.5;'>Descensus est veritas nuda... <i>(Descent is truth, undressed)</i></div>",
+  roombottom: "<center><i>“There are no guardians here. Only echoes wearing your name.”</i></center>",
   backgroundImage: "https://soi-9worlds.hyperchat.com/veilofdescentbackground.png",
   borderBGImage: "https://soi-9worlds.hyperchat.com/strip.jpg",
   innerBGColor: "#1a0f16",
@@ -241,10 +230,36 @@ veilOfDescent: {
   fromBGColor: "#301926",
   fromFontColor: "#efc6dd",
   toBGColor: "#3a1f2e",
-  toFontColor: "#f4b9d2",
-  spiritListBGColor: "#291723",
-  spiritListFontColor: "#eab7d2"
+  toFontColor: "#f4b9
+
+var multiConfig = {
+  defaultView: "veilOfWhispers", // or any other veil key you want to load first
+  currentView: "",
+  viewList: [
+   const poeticLabels = {
+  veilOfWhispers: '🜁 Veil of Whispers — “Where silence leans in close”',
+  veilOfAshes:    '🜂 Veil of Ashes — “What was burned never forgets”',
+  veilOfThorns:   '🜄 Veil of Thorns — “The bloom guards with pain”',
+  veilOfEmbers:   '🜂 Veil of Embers — “The spark is sleeping—not dead”',
+  veilOfEchoes:   '🜄 Veil of Echoes — “Your voice returns wearing new faces”',
+  veilOfRoots:    '🌿 Veil of Roots — “Memory coils beneath each step”',
+  veilOfHollows:  '🜃 Veil of Hollows — “Emptiness becomes invitation”',
+  veilOfFrost:    '❄ Veil of Frost — “Time slows to stillness”',
+  veilOfDescent:  '⬇ Veil of Descent — “No guardians remain... only echoes”'
+};
+
+for (const key of multiConfig.viewList) {
+  const opt = document.createElement("option");
+  opt.value = key;
+  opt.textContent = poeticLabels[key] || roomstuff.rooms[key].rName;
+  select.appendChild(opt);
 }
+
+  ],
+  locationColor: "#aaa",
+  locationBackground: "#1a1a2a"
+};
+
 
 function getElementsByClassName(className, tag, elm) {
   elm = elm || document;

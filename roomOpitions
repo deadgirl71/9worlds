@@ -1,11 +1,7 @@
 var multiConfig = {
   defaultView: "veilOfWhispers",
   currentView: "",
-  viewList: [
-    "VEILS",
-    "veilOfWhispers",
-    "veilOfEmbers"
-  ],
+  viewList: ["VEILS", "veilOfWhispers", "veilOfEmbers"],
   locationColor: "#aaa",
   locationBackground: "#1a1a2a"
 };

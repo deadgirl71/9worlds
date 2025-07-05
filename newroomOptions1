@@ -1,0 +1,11 @@
+const poeticLabels = {
+  veilOfWhispers: "🜁 Veil of Whispers — “Where silence leans in close”",
+  veilOfAshes: "🜂 Veil of Ashes — “What was burned never forgets”",
+  veilOfThorns: "🜄 Veil of Thorns — “The bloom guards with pain”",
+  veilOfEmbers: "🜂 Veil of Embers — “The spark is sleeping—not dead”",
+  veilOfEchoes: "🜄 Veil of Echoes — “Your voice returns wearing new faces”",
+  veilOfRoots: "🌿 Veil of Roots — “Memory coils beneath each step”",
+  veilOfHollows: "🜃 Veil of Hollows — “Emptiness becomes invitation”",
+  veilOfFrost: "❄️ Veil of Frost — “Time slows to stillness”",
+  veilOfDescent: "⬇️ Veil of Descent — “No guardians remain... only echoes”"
+};

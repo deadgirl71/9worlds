@@ -1,0 +1,248 @@
+var roomstuff = {
+  rooms: {
+
+    VEILS: {
+      rName: "— NINE VEILS —",
+      rDisable: "disabled"
+    },
+
+    veilOfWhispers: {
+      rName: "🜁 Veil of Whispers",
+      roomId: "veilOfWhispers",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veilofwhispersback.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/whispers-border.jpg",
+      innerBGColor: "#1a1a2a",
+      innerHRImage: "https://soi-9worlds.hyperchat.com/whispers-divider.png",
+      inputBGColor_Default: "#1e1e2e",
+      inputTextColor_Default: "#cccccc",
+      inputBorderColor_Default: "#555555",
+      chatBGColor: "#111111",
+      chatFontColor: "#cccccc",
+      link: "#cccccc",
+      hlink: "#ffffff",
+      selection: "#777777",
+
+      // Top layout (appears in veilinfo header)
+      veilHeaderTop: "🜁 A hush gathers like breath in the dark.",
+      veilHeaderLeft: "Only those who listen without wanting hear the true echo.",
+      veilHeaderUnder: "Sussurus super limen... <i>(A whisper across the threshold)</i>",
+      veilHeaderBottom: "“Step lightly, for here even silence listens.”",
+
+      // Bottom layout
+      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veilofwhispers-top.jpg'></center>",
+      chatleft: "<div style='text-align:left;'>Only those who listen without wanting hear the true echo.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Sussurus super limen... <i>(A whisper across the threshold)</i></div>",
+      roombottom: "<center><i>“Step lightly, for here even silence listens.”</i></center>"
+    },
+    veilOfAshes: {
+      rName: "🜂 Veil of Ashes",
+      roomId: "veilOfAshes",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veilofashesback.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/ashes-border.jpg",
+      innerBGColor: "#2b1f1e",
+      innerHRImage: "https://soi-9worlds.hyperchat.com/ashes-divider.png",
+      inputBGColor_Default: "#2a1d1b",
+      inputTextColor_Default: "#e1c4b8",
+      inputBorderColor_Default: "#8a5a49",
+      chatBGColor: "#1e1413",
+      chatFontColor: "#e1c4b8",
+      link: "#e1c4b8",
+      hlink: "#ffd6b3",
+      selection: "#a0522d",
+
+      // Top poetic banner
+      veilHeaderTop: "🜂 What was burned never forgets.",
+      veilHeaderLeft: "Ash is memory made visible.",
+      veilHeaderUnder: "Cinerem scripta est... <i>(The ash remembers)</i>",
+      veilHeaderBottom: "“Let what was lost bear witness.”",
+
+      // Bottom layout
+      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veilofashes-top.jpg'></center>",
+      chatleft: "<div style='text-align:left;'>Ash is memory made visible.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Cinerem scripta est... <i>(The ash remembers)</i></div>",
+      roombottom: "<center><i>“Let what was lost bear witness.”</i></center>"
+    },
+    veilOfThorns: {
+      rName: "🜄 Veil of Thorns",
+      roomId: "veilOfThorns",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veilofthornsback.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/thorns-border.jpg",
+      innerBGColor: "#2c1e24",
+      innerHRImage: "https://soi-9worlds.hyperchat.com/thorns-divider.png",
+      inputBGColor_Default: "#291c22",
+      inputTextColor_Default: "#e8d4db",
+      inputBorderColor_Default: "#a85f84",
+      chatBGColor: "#1d1217",
+      chatFontColor: "#e8d4db",
+      link: "#e8d4db",
+      hlink: "#ffbfd9",
+      selection: "#cc4e85",
+
+      veilHeaderTop: "🜄 The bloom guards with pain.",
+      veilHeaderLeft: "Beauty hidden behind wounds—there, love learns its shape.",
+      veilHeaderUnder: "Rosarum patientia... <i>(Patience of the rose)</i>",
+      veilHeaderBottom: "“Every petal knows the blade.”",
+
+      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veilofthorns-top.jpg'></center>",
+      chatleft: "<div style='text-align:left;'>Beauty hidden behind wounds—there, love learns its shape.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Rosarum patientia... <i>(Patience of the rose)</i></div>",
+      roombottom: "<center><i>“Every petal knows the blade.”</i></center>"
+    },
+    veilOfEmbers: {
+      rName: "🜂 Veil of Embers",
+      roomId: "veilOfEmbers",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veilofembersbackpossible.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/embers-border.jpg",
+      innerBGColor: "#2a1b17",
+      innerHRImage: "https://soi-9worlds.hyperchat.com/embers-divider.png",
+      inputBGColor_Default: "#331f1a",
+      inputTextColor_Default: "#f8dfc5",
+      inputBorderColor_Default: "#805a3a",
+      chatBGColor: "#1e1411",
+      chatFontColor: "#f8dfc5",
+      link: "#f8dfc5",
+      hlink: "#ffb97a",
+      selection: "#b34700",
+
+      veilHeaderTop: "🜂 The spark is sleeping—not dead.",
+      veilHeaderLeft: "Each glow waits for breath, not permission.",
+      veilHeaderUnder: "Vivit scintilla... <i>(The ember lives)</i>",
+      veilHeaderBottom: "“Warmth, still tethered to ruin.”",
+
+      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veilofembers-top.jpg'></center>",
+      chatleft: "<div style='text-align:left;'>Each glow waits for breath, not permission.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Vivit scintilla... <i>(The ember lives)</i></div>",
+      roombottom: "<center><i>“Warmth, still tethered to ruin.”</i></center>"
+    },
+    veilOfEchoes: {
+      rName: "🜄 Veil of Echoes",
+      roomId: "veilOfEchoes",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veilofechoesback.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/echoes-border.jpg",
+      innerBGColor: "#1f2430",
+      innerHRImage: "https://soi-9worlds.hyperchat.com/echoes-divider.png",
+      inputBGColor_Default: "#252b3a",
+      inputTextColor_Default: "#d0d0e1",
+      inputBorderColor_Default: "#7b7c98",
+      chatBGColor: "#13161d",
+      chatFontColor: "#d0d0e1",
+      link: "#d0d0e1",
+      hlink: "#a4a7cc",
+      selection: "#485580",
+
+      veilHeaderTop: "🜄 Your voice returns wearing new faces.",
+      veilHeaderLeft: "Not all that answers is you.",
+      veilHeaderUnder: "Vox iterata... <i>(The voice repeated)</i>",
+      veilHeaderBottom: "“Speak carefully. The air remembers.”",
+
+      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veilofechoes-top.jpg'></center>",
+      chatleft: "<div style='text-align:left;'>Not all that answers is you.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Vox iterata... <i>(The voice repeated)</i></div>",
+      roombottom: "<center><i>“Speak carefully. The air remembers.”</i></center>"
+    },
+    veilOfRoots: {
+      rName: "🌿 Veil of Roots",
+      roomId: "veilOfRoots",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veilofrootsback.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/roots-border.jpg",
+      innerBGColor: "#1e291e",
+      innerHRImage: "https://soi-9worlds.hyperchat.com/roots-divider.png",
+      inputBGColor_Default: "#202f22",
+      inputTextColor_Default: "#b7d1b7",
+      inputBorderColor_Default: "#4a6e4f",
+      chatBGColor: "#141e14",
+      chatFontColor: "#b7d1b7",
+      link: "#b7d1b7",
+      hlink: "#d9f2d9",
+      selection: "#448844",
+
+      veilHeaderTop: "🌿 Memory coils beneath each step.",
+      veilHeaderLeft: "The ground tells stories no tongue ever formed.",
+      veilHeaderUnder: "Radices audiunt... <i>(The roots listen)</i>",
+      veilHeaderBottom: "“To walk here is to remember.”",
+
+      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veilofroots-top.jpg'></center>",
+      chatleft: "<div style='text-align:left;'>The ground tells stories no tongue ever formed.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Radices audiunt... <i>(The roots listen)</i></div>",
+      roombottom: "<center><i>“To walk here is to remember.”</i></center>"
+    },
+    veilOfHollows: {
+      rName: "🜃 Veil of Hollows",
+      roomId: "veilOfHollows",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veilofhollowsback.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/hollows-border.jpg",
+      innerBGColor: "#1c1b1b",
+      innerHRImage: "https://soi-9worlds.hyperchat.com/hollows-divider.png",
+      inputBGColor_Default: "#1a1919",
+      inputTextColor_Default: "#bbb8b5",
+      inputBorderColor_Default: "#6b6b6b",
+      chatBGColor: "#111111",
+      chatFontColor: "#bbb8b5",
+      link: "#bbb8b5",
+      hlink: "#ffffff",
+      selection: "#444444",
+
+      veilHeaderTop: "🜃 Emptiness becomes invitation.",
+      veilHeaderLeft: "Not all voids are absence—some are hunger.",
+      veilHeaderUnder: "Vacua vocat... <i>(The hollow calls)</i>",
+      veilHeaderBottom: "“Step inside. Leave nothing.”",
+
+      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veilofhollows-top.jpg'></center>",
+      chatleft: "<div style='text-align:left;'>Not all voids are absence—some are hunger.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Vacua vocat... <i>(The hollow calls)</i></div>",
+      roombottom: "<center><i>“Step inside. Leave nothing.”</i></center>"
+    },
+    veilOfFrost: {
+      rName: "❄️ Veil of Frost",
+      roomId: "veilOfFrost",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veiloffrostback.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/frost-border.jpg",
+      innerBGColor: "#212933",
+      innerHRImage: "https://soi-9worlds.hyperchat.com/frost-divider.png",
+      inputBGColor_Default: "#263040",
+      inputTextColor_Default: "#dce8f0",
+      inputBorderColor_Default: "#7da1bf",
+      chatBGColor: "#131b25",
+      chatFontColor: "#dce8f0",
+      link: "#dce8f0",
+      hlink: "#c4e3ff",
+      selection: "#529dd1",
+
+      veilHeaderTop: "❄️ Time slows to stillness.",
+      veilHeaderLeft: "Breath curls and vanishes. So do promises.",
+      veilHeaderUnder: "Gelida memoria... <i>(Frozen memory)</i>",
+      veilHeaderBottom: "“Even silence fractures in the cold.”",
+
+      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veiloffrost-top.jpg'></center>",
+      chatleft: "<div style='text-align:left;'>Breath curls and vanishes. So do promises.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Gelida memoria... <i>(Frozen memory)</i></div>",
+      roombottom: "<center><i>“Even silence fractures in the cold.”</i></center>"
+    },
+    veilOfDescent: {
+      rName: "⬇️ Veil of Descent",
+      roomId: "veilOfDescent",
+      backgroundImage: "https://soi-9worlds.hyperchat.com/veilofdescentback.jpg",
+      borderBGImage: "https://soi-9worlds.hyperchat.com/descent-border.jpg",
+      innerBGColor: "#151214",
+      innerHRImage: "https://soi-9worlds.hyperchat.com/descent-divider.png",
+      inputBGColor_Default: "#1c181b",
+      inputTextColor_Default: "#bba0b6",
+      inputBorderColor_Default: "#6d5570",
+      chatBGColor: "#0f0d0f",
+      chatFontColor: "#bba0b6",
+      link: "#bba0b6",
+      hlink: "#dfc6e6",
+      selection: "#663366",
+
+      veilHeaderTop: "⬇️ No guardians remain… only echoes.",
+      veilHeaderLeft: "Fall with intention. The dark notices.",
+      veilHeaderUnder: "Nulla resistit... <i>(Nothing resists)</i>",
+      veilHeaderBottom: "“Your weight tells the story now.”",
+
+      roomtop: "<center><img src='https://soi-9worlds.hyperchat.com/veilofdescent-top.jpg'></center>",
+      chatleft: "<div style='text-align:left;'>Fall with intention. The dark notices.</div>",
+      underchat: "<div style='text-align:center;font-size:10px;opacity:0.5;'>Nulla resistit... <i>(Nothing resists)</i></div>",
+      roombottom: "<center><i>“Your weight tells the story now.”</i></center>"
+    }
+  }
+};
